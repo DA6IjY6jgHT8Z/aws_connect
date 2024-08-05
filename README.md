@@ -52,6 +52,7 @@ If it is not a holiday and it is durring business hours it will continue to the 
 
 ## Issues
 Provisioning a number for Connect
+Getting the following errors requiring support. Getting a trial support subscription but it takes 2 weeks for them to activate it after it is requested. Requested on 7/29.
 - "We couldn't claim your phone number - Phone number not available: +17015783673. Try again with a different available number"
 - "We couldn't claim your phone number - The allowed limit for claimed phone numbers has been exceeded for your instance"
 
