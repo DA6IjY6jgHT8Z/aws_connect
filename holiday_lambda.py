@@ -12,7 +12,7 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('holidays')
 
     
-def read_column(date, column):
+def read_table_column(date, column):
     response_col = "None"
     try:
         response = table.get_item(
@@ -33,19 +33,14 @@ def lambda_handler(event, context):
     eastern = dateutil.tz.gettz('US/Eastern')
     dt_us_eastern = datetime.datetime.now(tz=eastern)
     logger.info (dt_us_eastern)
-    iso_date = datetime.date.isoformat(dt_us_eastern)
     str_date = dt_us_eastern.strftime("%Y-%m-%d")
 
     logger.info("The attributes of now() are : ")
-      
-    logger.info (dt_us_eastern.year)
-    logger.info (dt_us_eastern.month)
-    logger.info (dt_us_eastern.day)
 
     logger.info(str_date)
 
     str_date = "2024-12-25"
-    response = read_column(str_date, "description")
+    response = read_table_column(str_date, "description")
 
     return {
         "holiday": response

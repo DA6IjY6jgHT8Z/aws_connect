@@ -9,7 +9,7 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('caller_id')
 
     
-def read_column(key, column):
+def read_table_column(key, column):
     response_col = "None"
     try:
         response = table.get_item(
@@ -27,7 +27,7 @@ def read_column(key, column):
 def lambda_handler(event, context):
     logger.info(json.dumps(event, indent=2))
     caller_phone = event["Details"]["ContactData"]["CustomerEndpoint"]["Address"]
-    response = read_column(caller_phone, "sales_rep")
+    response = read_table_column(caller_phone, "sales_rep")
 
     return {
         "sales_rep": response
